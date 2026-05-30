@@ -1,0 +1,9 @@
+{
+  "name": "agent-orchestration",
+  "description": "让主 agent 当中枢调度者：开工前对齐范围与验收口径，之后自主派发隔离子代理、用文档交接、独立验收门把关、节奏化提交到可交付。领域无关，Claude Code / Codex 通用。",
+  "version": "0.1.0",
+  "author": { "name": "AstralArtisan" },
+  "license": "MIT",
+  "keywords": ["orchestration", "subagents", "workflow", "handoff", "leader"],
+  "skills": ["./skills/agent-orchestration"]
+}

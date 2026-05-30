@@ -1,0 +1,22 @@
+# 打包产物（.skill 走 GitHub Release，不进仓库）
+dist/
+*.skill
+
+# OS / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+
+# skill-creator 评估工作区
+*-workspace/
+
+# 本地设置
+.claude/settings.local.json
+
+# 重构后遗留在仓库根的旧技能副本（规范副本在 plugins/agent-orchestration/skills/）。
+# 关闭占用它的编辑器后可手动删除本地的该文件夹。
+/agent-orchestration/

@@ -2,6 +2,21 @@
 
 本仓库按「每个 skill 独立版本」记录；发布标签格式 `<skill>-vX.Y.Z`。
 
+## 市场改名 — 2026-06-02
+
+仓库与 marketplace 由 `agent-skills` 更名为 `astral-skills`（`agent-skills` 为 Anthropic 官方保留名）。
+安装命令相应改为 `/plugin marketplace add AstralArtisan/astral-skills`、`/plugin install <skill>@astral-skills`。
+
+## lab-report 0.1.0 — 2026-06-02
+
+首发：课程实验报告写作助手 skill。
+
+- 模仿使用者写作风格撰写、填充、检查、润色课程实验报告。
+- 覆盖 Markdown（Typora）与 Word 两种输出，核心差异在标题编号规范。
+- 内置三类报告结构模板：理论/算法类、网络/系统类、硬件/数字逻辑类。
+- 配套反 AI 腔写作禁忌清单与中英文混用术语风格规则。
+- 公开副本已脱敏：移除个人身份信息，仅保留通用写作风格规范。
+
 ## agent-orchestration 0.1.0 — 2026-05-30
 
 首发：中枢编排方法论 skill。

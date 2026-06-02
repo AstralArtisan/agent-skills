@@ -1,9 +1,9 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "agent-skills",
+  "name": "astral-skills",
   "owner": { "name": "AstralArtisan" },
   "metadata": {
-    "description": "AstralArtisan 的个人 Agent Skills 合集与市场。",
+    "description": "AstralArtisan 的个人 skill 合集与市场。",
     "version": "0.1.0"
   },
   "plugins": [
@@ -15,6 +15,15 @@
       "author": { "name": "AstralArtisan" },
       "category": "workflow",
       "keywords": ["orchestration", "subagents", "workflow", "handoff", "leader"]
+    },
+    {
+      "name": "lab-report",
+      "source": "./plugins/lab-report",
+      "description": "课程实验报告写作助手：模仿使用者的写作风格撰写、填充、检查、润色课程实验报告。覆盖 Markdown（Typora）与 Word 两种输出，内置理论/算法、网络/系统、硬件/数字逻辑三类报告模板，并带一份反 AI 腔的写作禁忌与术语风格清单。",
+      "version": "0.1.0",
+      "author": { "name": "AstralArtisan" },
+      "category": "writing",
+      "keywords": ["lab-report", "writing", "academic", "report", "education", "chinese"]
     }
   ]
 }

@@ -1,6 +1,6 @@
-# agent-skills
+# astral-skills
 
-> AstralArtisan 的个人 **Agent Skills** 合集与市场。一份 `SKILL.md`，Claude Code / Codex / 跨工具通用。
+> AstralArtisan 的个人 **skill** 合集与市场。一份 `SKILL.md`，Claude Code / Codex / 跨工具通用。
 
 这是一个自带 **Claude Code 插件市场**（marketplace）的仓库：每个 skill 是一个独立插件，可单独安装；同一份技能文件夹也能直接放进 Codex / 其它读 `~/.agents/skills/` 的工具。仓库会随我后续做更多 skill 持续增长。
 
@@ -9,23 +9,25 @@
 | Skill | 说明 | 文档 |
 | --- | --- | --- |
 | `agent-orchestration` | 让主 agent 像项目 leader 一样**编排子代理**：开工前对齐范围与验收口径，之后自主派发隔离子代理、用文档交接、独立验收门把关、节奏化提交，直到可交付，中途不打断用户。领域无关。 | [SKILL.md](plugins/agent-orchestration/skills/agent-orchestration/SKILL.md) |
+| `lab-report` | **课程实验报告写作助手**：模仿使用者写作风格撰写、填充、检查、润色实验报告。覆盖 Markdown（Typora）与 Word 两种输出，内置理论/算法、网络/系统、硬件/数字逻辑三类模板，附反 AI 腔的写作禁忌与术语风格清单。 | [SKILL.md](plugins/lab-report/skills/lab-report/SKILL.md) |
 
 ## 安装
 
 ### ① Claude Code（插件市场，推荐，一行装）
 
 ```text
-/plugin marketplace add AstralArtisan/agent-skills
-/plugin install agent-orchestration@agent-skills
+/plugin marketplace add AstralArtisan/astral-skills
+/plugin install agent-orchestration@astral-skills
+/plugin install lab-report@astral-skills
 ```
 
-之后我 push 更新，你用 `/plugin marketplace update agent-skills` 即可拿到。
+之后我 push 更新，你用 `/plugin marketplace update astral-skills` 即可拿到。
 
 也可手动安装（不走市场）：把技能文件夹复制到 `~/.claude/skills/`——
 
 ```bash
-git clone https://github.com/AstralArtisan/agent-skills
-cd agent-skills
+git clone https://github.com/AstralArtisan/astral-skills
+cd astral-skills
 ./install.sh agent-orchestration claude      # Windows: .\install.ps1 agent-orchestration claude
 ```
 
@@ -34,8 +36,8 @@ cd agent-skills
 Codex 原生 Agent Skills 与 Claude Code **同构**（同样 `SKILL.md` + `references/` + `assets/`），所以同一文件夹直接可用，只是放在跨工具约定目录 `~/.agents/skills/`：
 
 ```bash
-git clone https://github.com/AstralArtisan/agent-skills
-cd agent-skills
+git clone https://github.com/AstralArtisan/astral-skills
+cd astral-skills
 ./install.sh agent-orchestration codex       # 复制到 ~/.agents/skills/agent-orchestration
 #   Windows: .\install.ps1 agent-orchestration codex
 ```
@@ -46,7 +48,7 @@ cd agent-skills
 
 ### ③ Claude.ai / 便携（下载 .skill）
 
-从 [Releases](https://github.com/AstralArtisan/agent-skills/releases) 下载对应 `*.skill`（即技能文件夹的 zip 包）。在 Claude.ai 的技能设置里上传，或解压到上面任一技能目录。
+从 [Releases](https://github.com/AstralArtisan/astral-skills/releases) 下载对应 `*.skill`（即技能文件夹的 zip 包）。在 Claude.ai 的技能设置里上传，或解压到上面任一技能目录。
 
 ## agent-orchestration 用什么场合触发
 
@@ -65,16 +67,19 @@ cd agent-skills
 ## 仓库结构
 
 ```text
-agent-skills/
+astral-skills/
 ├── .claude-plugin/
 │   └── marketplace.json                 # 市场清单（列出每个插件）
 ├── plugins/
-│   └── agent-orchestration/             # 一个插件 = 一个 skill
+│   ├── agent-orchestration/             # 一个插件 = 一个 skill
+│   │   ├── .claude-plugin/plugin.json
+│   │   └── skills/agent-orchestration/  # 规范技能文件夹（Claude Code & Codex 通用）
+│   │       ├── SKILL.md
+│   │       ├── references/
+│   │       └── assets/
+│   └── lab-report/                      # 课程实验报告写作助手
 │       ├── .claude-plugin/plugin.json
-│       └── skills/agent-orchestration/  # 规范技能文件夹（Claude Code & Codex 通用）
-│           ├── SKILL.md
-│           ├── references/
-│           └── assets/
+│       └── skills/lab-report/SKILL.md
 ├── install.sh / install.ps1             # 复制技能到 ~/.claude/skills 或 ~/.agents/skills
 ├── CHANGELOG.md
 └── LICENSE
@@ -92,7 +97,7 @@ agent-skills/
 
 改技能内容 → bump 对应 `plugin.json`（与 marketplace 条目）的 `version` → 记 `CHANGELOG.md` → 提交推送 → `gh release create <skill>-vX.Y.Z dist/<skill>.skill`。
 
-- Claude Code 插件用户：`/plugin marketplace update agent-skills`。
+- Claude Code 插件用户：`/plugin marketplace update astral-skills`。
 - Codex / 手动用户：重跑 `./install.sh <skill> <claude|codex>` 覆盖即可。
 
 ## 参考
